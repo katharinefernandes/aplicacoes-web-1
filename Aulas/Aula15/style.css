@@ -1,0 +1,59 @@
+:root{
+  --color-text: #000;
+  --color-background: #fff;
+  --color-text-btn: #fff;
+  --color-background-btn: #000;
+  --color-h2: #00f;
+}
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+li{
+  list-style: none;
+}
+input[type="checkbox"]{
+  appearance: none;
+}
+h2{
+  color: var(--color-h2);
+}
+section {
+  background-color: var(--color-background);
+  color: var(--color-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 100vh;
+  padding: 80px 100px;
+}
+label{
+  position: fixed;
+  top: 60px;
+  right: 150px;
+  cursor: pointer;
+}
+label:before{
+  content: "Dark";
+  position: absolute;
+  color: var(--color-text-btn);
+  background-color: var(--color-background-btn);
+  padding: 10px 20px;
+}
+input[type="checkbox"]:checked + section{
+  --color-text: #fff;
+  --color-background: #000;
+  --color-text-btn: #000;
+  --color-background-btn: #fff;
+  --color-h2: #f00;
+}
+input[type="checkbox"]:checked + section label:before{
+  content: "Light";
+}
+h2, section, label:before{
+  transition: .5s ease-in-out background, .5s ease-in-out color;
+}
+
+
