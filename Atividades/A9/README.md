@@ -1,7 +1,6 @@
-# Atividade 9 
-## Transições, Transformações e Animações
+# Atividade 9
+## Aula 4 - NLW Origin Six
 
-<p>Feito por: Katharine Fernandes Viana Rodrigues</p>
+<p>Professor: Johnata Souza Santicioli</p>
+<p>Desenvolvido por: Katharine Fernandes Viana Rodrigues</p>
 <p>Prontuário: SP302718X</p>
-
-Link do Vercel: https://katharinefernandes-aw1-aula-9.vercel.app/
