@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Teste Javascript</title>
+    <meta charset="UTF-8" />
+  </head>
+
+  <body style="font-family: Poppins">
+    <h1>Acenda a lâmpada</h1>
+    <img
+      src="./assets/apagada.jpg"
+      id="luz"
+      onmousemove="mudaLamp(1)"
+      onmouseout="mudaLamp(2)"
+      onclick="mudaLamp(3)"
+    />
+
+    <script>
+      function mudaLamp(tipo) {
+        if (tipo == 1) arquivo = "./assets/acesa.jpg";
+        if (tipo == 2) arquivo = "./assets/apagada.jpg";
+        if (tipo == 3) arquivo = "./assets/quebrada.jpg";
+
+        document.getElementById("luz").src = arquivo;
+      }
+    </script>
+  </body>
+  <html></html>
+</html>
