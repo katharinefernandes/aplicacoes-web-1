@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <title>JavaScript</title>
+
+    <style type="text/css">
+      body {
+        font-family: Poppins, sans-serif;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Primeiro Script</h1>
+
+    <hr />
+    <h2>Formulário</h2>
+    Valor 1: <input type="text" id="v1" /><br />
+    Valor 2: <input type="text" id="v2" />
+    <p id="res">Resposta Soma:</p>
+    <button type="button" onclick="soma()">Soma</button>
+
+    <script>
+      function soma() {
+        var e1 = Number(document.getElementById("v1").value);
+        var e2 = Number(document.getElementById("v2").value);
+
+        let total = e1 + e2;
+
+        document.getElementById("res").innerHTML = `Resposta Soma: ${total}`;
+      }
+    </script>
+  </body>
+</html>
