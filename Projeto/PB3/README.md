@@ -1,7 +1,7 @@
 # Projeto 3° Bimestre
-## JavaScript -  VirtualKeyBoard
+## JavaScript - Organkat
 
 <p>Professor: Johnata Souza Santicioli</p>
 <p>Desenvolvido por: Katharine Fernandes Viana Rodrigues</p>
 <p>Prontuário: SP302718X</p>
-<p>Link do Vercel: https://virtualkeyboard-b3.vercel.app/ </p>
+<p>Link do Vercel:  </p>
