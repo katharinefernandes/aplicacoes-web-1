@@ -1,0 +1,94 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+}
+
+:root {
+  --pink-deg: linear-gradient(135deg, #f17896, #d86c8f);
+  --dark-blue: #1c093c;
+}
+
+body {
+  height: 100vh;
+  background: var(--pink-deg);
+}
+
+.container {
+  background: #fff;
+  padding: 35px 50px;
+  width: 60%;
+  min-width: 420px;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  border-radius: 10px;
+  box-shadow: 20px 30px 25px rgba(0, 0, 0, 0.15);
+}
+
+h1 {
+  font-size: 30px;
+  text-align: center;
+  color: #1c093c;
+}
+
+p {
+  position: relative;
+  margin: auto;
+  width: 100%;
+  text-align: center;
+  color: #606060;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+form {
+  width: 100%;
+  position: relative;
+  margin: 30px auto 0 auto;
+}
+
+label {
+  color: var(--dark-blue);
+  font-size: 14px;
+}
+
+.row {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-gap: 15px 25px;
+  margin-bottom: 20px;
+}
+
+textarea,
+input {
+  width: 100%;
+  font-weight: 400;
+  padding: 8px 10px;
+  border-radius: 5px;
+  border: 1.2px solid #a5a9bb;
+  margin-top: 5px;
+}
+
+textarea {
+  resize: none;
+}
+
+textarea:focus,
+input:focus {
+  outline: none;
+  border-color: #f17896;
+}
+
+button {
+  border: none;
+  padding: 10px 20px;
+  background: var(--pink-deg);
+  color: #fff;
+  border-radius: 3px;
+  cursor: pointer;
+}

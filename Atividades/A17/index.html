@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formulário - Cadastro</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>ENTRE EM CONTATO</h1>
+      <p>Tem alguma sugestão ou pergunta? Deixe uma mensagem</p>
+      <form>
+        <div class="row">
+          <div class="column">
+            <label for="name">Nome Completo</label>
+            <input
+              type="text"
+              id="name"
+              placeholder="Insira seu nome"
+              autocomplete="off"
+              required
+            />
+          </div>
+          <div class="column">
+            <label for="email">Email</label>
+            <input
+              type="email"
+              placeholder="Insira seu email"
+              autocomplete="off"
+              required
+            />
+          </div>
+        </div>
+        <div class="row">
+          <div class="column">
+            <label for="telefone">Telefone</label>
+            <input
+              type="tel"
+              id="contact"
+              placeholder="Insira seu telefone"
+              autocomplete="off"
+              data-js="phone"
+              required
+            />
+          </div>
+          <div class="column">
+            <label for="contact">CPF</label>
+            <input
+              type="text"
+              id="cpf"
+              placeholder="Insira seu CPF"
+              autocomplete="off"
+              data-js="cpf"
+              required
+            />
+          </div>
+        </div>
+        <div class="row">
+          <div class="column">
+            <label for="issue">Assunto</label>
+            <input
+              type="text"
+              id="cpf"
+              placeholder="Insira o assunto"
+              autocomplete="off"
+              required
+            />
+          </div>
+        </div>
+        <div class="row">
+          <div class="column">
+            <label for="issue">Sugestão/Pergunta</label>
+            <textarea
+              id="issue"
+              cols="30"
+              rows="3"
+              placeholder="Insira sua sugestão ou pergunta"
+              autocomplete="off"
+              required
+            ></textarea>
+          </div>
+        </div>
+        <button>Enviar</button>
+      </form>
+    </div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
