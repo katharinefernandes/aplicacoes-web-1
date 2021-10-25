@@ -58,7 +58,7 @@ input:focus {
   border-top: 1px solid #e5e5e5;
   cursor: pointer;
   font-size: 1rem;
-  padding: .4rem;
+  padding: 0.4rem;
 }
 
 .todos p.completed {
