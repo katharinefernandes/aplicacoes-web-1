@@ -9,11 +9,13 @@
 body {
   color: #444;
   font-family: "Poppins", sans-serif;
+  background-image: url(/assets/5.svg);
 }
 
 /*----- Título -----*/
 h1 {
-  color: #f65058ff;
+  /* color: #f65058ff; */
+  color: rgb(45, 57, 83);
   font-size: 3rem;
   text-align: center;
   opacity: 0.5;
@@ -23,7 +25,6 @@ h1 {
 #formulario {
   display: flex;
   flex-direction: column;
-  height: 100vh;
   justify-content: left;
   align-items: center;
   margin: 0;
@@ -34,6 +35,8 @@ form {
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   max-width: 100%;
   width: 400px;
+  background: white;
+  border-radius: 6px;
 }
 
 .input {
@@ -43,6 +46,7 @@ form {
   padding: 1rem 2rem;
   display: block;
   width: 100%;
+  border-radius: 6px;
 }
 
 .input::placeholder {
@@ -55,7 +59,7 @@ input:focus {
 
 /*----- Tarefas adicionadas -----*/
 .todos {
-  background-color: #fff;
+  background: white;
   padding: 0;
   margin: 0;
   list-style: none;
@@ -78,4 +82,5 @@ small {
   margin-top: 3rem;
   text-align: center;
   color: #b5b5b5;
+  color: black;
 }

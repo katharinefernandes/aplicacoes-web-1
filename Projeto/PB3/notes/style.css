@@ -10,7 +10,7 @@
 
 body {
   margin: 0;
-  background: #f65058ff;
+  background-image: url(/assets/5.svg); 
   font-family: "Poppins", sans-serif;
 }
 
