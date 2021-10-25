@@ -19,9 +19,9 @@ function saveNotes(notes) {
 function createNoteElement(id, content) {
   const element = document.createElement("textarea");
 
-  element.classList.add("keyboard-input", "note");
+  element.classList.add("note", "keyboard-input");
   element.value = content;
-  element.placeholder = "Empty Sticky Note";
+  element.placeholder = "Nota adesiva vazia";
 
   element.addEventListener("change", () => {
     updateNote(id, element.value);
