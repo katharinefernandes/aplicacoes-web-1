@@ -2,6 +2,7 @@ const form = document.getElementById("form");
 const input = document.getElementById("input");
 const todosUL = document.getElementById("todos");
 
+// Fazendo com que a tarefa não seja deletada quando recarregada
 const todos = JSON.parse(localStorage.getItem("todos"));
 
 if (todos) {
@@ -15,13 +16,14 @@ form.addEventListener("submit", (e) => {
   addTodo();
 });
 
+// Adicionando tarefa
 function addTodo(todo) {
   let todoText = input.value;
   if (todo) {
     todoText = todo.text;
   }
 
-  // lista de itens
+  // Lista das tarefas
   if (todoText) {
     const todoEl = document.createElement("p");
     if (todo && todo.completed) {
@@ -29,26 +31,26 @@ function addTodo(todo) {
     }
     todoEl.innerText = todoText;
 
-    //marcando como completo
+    // Marcando tarefa como completa
     todoEl.addEventListener("click", () => {
       todoEl.classList.toggle("completed");
       updateLS();
     });
 
-    //deletando
+    // Deletando tarefa
     todoEl.addEventListener("contextmenu", (e) => {
       e.preventDefault();
       todoEl.remove();
       updateLS();
     });
 
-    //adicionando item
     todosUL.appendChild(todoEl);
     input.value = "";
     updateLS();
   }
 }
 
+// Fazendo com que a tarefa não seja deletada quando recarregada
 function updateLS() {
   todosEl = document.querySelectorAll("p");
 

@@ -1,3 +1,8 @@
+/*----- Links: Fonte e Icones -----*/
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+
+/*----- Corpo da página -----*/
 body,
 ul {
   margin: 0px;
@@ -5,6 +10,7 @@ ul {
   font-family: "Poppins", sans-serif;
 }
 
+/*----- Links do menu -----*/
 a {
   color: black;
   text-decoration: none;
@@ -15,11 +21,18 @@ a:hover {
   background: rgba(0, 0, 0, 0.05);
 }
 
+/*----- Logo -----*/
 #logo {
   font-size: 1.5rem;
   font-weight: bold;
+  cursor: default;
 }
 
+#logo:hover {
+  background: none;
+}
+
+/*----- Config menu -----*/
 #header {
   box-sizing: border-box;
   height: 70px;
@@ -41,10 +54,12 @@ a:hover {
   padding: 0.5rem;
 }
 
+/*----- Botão lateral -----*/
 #btn-mobile {
   display: none;
 }
 
+/*----- Responsividade ---*/
 @media (max-width: 600px) {
   #menu {
     display: block;
@@ -84,7 +99,7 @@ a:hover {
   }
   #hamb::after,
   #hamb::before {
-    content: '';
+    content: "";
     display: block;
     width: 20px;
     height: 2px;

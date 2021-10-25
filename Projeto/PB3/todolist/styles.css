@@ -1,3 +1,7 @@
+/*----- Link: Fonte -----*/
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+
+/*----- Corpo da página -----*/
 * {
   box-sizing: border-box;
 }
@@ -7,6 +11,15 @@ body {
   font-family: "Poppins", sans-serif;
 }
 
+/*----- Título -----*/
+h1 {
+  color: #f65058ff;
+  font-size: 3rem;
+  text-align: center;
+  opacity: 0.5;
+}
+
+/*----- Formulário -----*/
 #formulario {
   display: flex;
   flex-direction: column;
@@ -15,13 +28,6 @@ body {
   align-items: center;
   margin: 0;
   overflow: hidden;
-}
-
-h1 {
-  color: #f65058ff;
-  font-size: 3rem;
-  text-align: center;
-  opacity: 0.5;
 }
 
 form {
@@ -47,6 +53,7 @@ input:focus {
   outline-color: rgb(231, 167, 200);
 }
 
+/*----- Tarefas adicionadas -----*/
 .todos {
   background-color: #fff;
   padding: 0;
@@ -57,8 +64,8 @@ input:focus {
 .todos p {
   border-top: 1px solid #e5e5e5;
   cursor: pointer;
-  font-size: 1rem;
-  padding: 0.4rem;
+  font-size: 1.3rem;
+  padding: 1rem 0rem 0rem 1rem;
 }
 
 .todos p.completed {
@@ -66,6 +73,7 @@ input:focus {
   text-decoration: line-through;
 }
 
+/*----- Texto informativo -----*/
 small {
   margin-top: 3rem;
   text-align: center;

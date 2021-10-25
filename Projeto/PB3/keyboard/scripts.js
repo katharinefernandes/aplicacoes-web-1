@@ -1,3 +1,4 @@
+// Criando o Teclado
 const Keyboard = {
   elements: {
     main: null,
@@ -31,7 +32,7 @@ const Keyboard = {
     this.elements.main.appendChild(this.elements.keysContainer);
     document.body.appendChild(this.elements.main);
 
-    // Uso automatico do teclado para os elementos com a class .use-keyboard-input
+    // Uso automatico do teclado para os elementos com a class .keyboard-input
     document.querySelectorAll(".keyboard-input").forEach((element) => {
       element.addEventListener("focus", () => {
         this.open(element.value, (currentValue) => {
@@ -41,6 +42,7 @@ const Keyboard = {
     });
   },
 
+  // Criando teclas 
   _createKeys() {
     const fragment = document.createDocumentFragment();
     const keyLayout = [
@@ -54,7 +56,9 @@ const Keyboard = {
       "8",
       "9",
       "0",
+      "-",
       "backspace",
+      "tab",
       "q",
       "w",
       "e",
@@ -75,6 +79,7 @@ const Keyboard = {
       "j",
       "k",
       "l",
+      "ç",
       "enter",
       "done",
       "z",
@@ -86,6 +91,7 @@ const Keyboard = {
       "m",
       ",",
       ".",
+      ";",
       "?",
       "space",
     ];
@@ -104,6 +110,7 @@ const Keyboard = {
       keyElement.setAttribute("type", "button");
       keyElement.classList.add("keyboard-key");
 
+      // Ativando teclas especiais (backspace, caps-lock, enter, space e tab)
       switch (key) {
         case "backspace":
           keyElement.classList.add("keyboard-key-wide");
@@ -169,6 +176,17 @@ const Keyboard = {
 
           break;
 
+          case "tab":
+            keyElement.classList.add("keyboard-key-wide");
+            keyElement.innerHTML = createIconHTML("sync_alt");
+  
+            keyElement.addEventListener("click", () => {
+              this.properties.value += "    ";
+              this._triggerEvent("oninput");
+            });
+  
+            break;
+
         default:
           keyElement.textContent = key.toLowerCase();
 
@@ -197,7 +215,8 @@ const Keyboard = {
       this.eventHandlers[handlerName](this.properties.value);
     }
   },
-
+  
+  // Animação do caps-lock
   _toggleCapsLock() {
     this.properties.capsLock = !this.properties.capsLock;
 
@@ -210,6 +229,7 @@ const Keyboard = {
     }
   },
 
+  // Abrindo teclado
   open(initialValue, oninput, onclose) {
     this.properties.value = initialValue || "";
     this.eventHandlers.oninput = oninput;
@@ -217,6 +237,7 @@ const Keyboard = {
     this.elements.main.classList.remove("keyboard-hidden");
   },
 
+  // Fechando teclado
   close() {
     this.properties.value = "";
     this.eventHandlers.oninput = oninput;

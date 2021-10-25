@@ -12,10 +12,12 @@ function getNotes() {
   return JSON.parse(localStorage.getItem("stickynotes-notes") || "[]");
 }
 
+// Fazendo com que a nota não seja deletada quando recarregada
 function saveNotes(notes) {
   localStorage.setItem("stickynotes-notes", JSON.stringify(notes));
 }
 
+// Criando elemento da nota adesiva
 function createNoteElement(id, content) {
   const element = document.createElement("textarea");
 
@@ -27,10 +29,9 @@ function createNoteElement(id, content) {
     updateNote(id, element.value);
   });
 
+  // Aviso antes da nota adesiva ser deletada
   element.addEventListener("dblclick", () => {
-    const doDelete = confirm(
-      "Are you sure you wish to delete this sticky note?"
-    );
+    const doDelete = confirm("Você tem certeza que deseja deletar essa nota?");
 
     if (doDelete) {
       deleteNote(id, element);
@@ -40,11 +41,12 @@ function createNoteElement(id, content) {
   return element;
 }
 
+// Função para criar uma nova nota adesiva
 function addNote() {
   const notes = getNotes();
   const noteObject = {
     id: Math.floor(Math.random() * 100000),
-    content: ""
+    content: "",
   };
 
   const noteElement = createNoteElement(noteObject.id, noteObject.content);
@@ -54,6 +56,7 @@ function addNote() {
   saveNotes(notes);
 }
 
+// Evento para atualizar a nota adesiva
 function updateNote(id, newContent) {
   const notes = getNotes();
   const targetNote = notes.filter((note) => note.id == id)[0];
@@ -62,6 +65,7 @@ function updateNote(id, newContent) {
   saveNotes(notes);
 }
 
+// Deletando nota com dois clicks
 function deleteNote(id, element) {
   const notes = getNotes().filter((note) => note.id != id);
 

@@ -1,3 +1,7 @@
+/*----- Link: Fonte -----*/
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+
+/*----- Corpo da página -----*/
 * {
   margin: 0;
   padding: 0;
@@ -10,14 +14,15 @@ body {
   font-family: "Poppins", sans-serif;
 }
 
-
+/*----- Notas por linha -----*/
 #app {
   display: grid;
-  grid-template-columns: repeat(auto-fill, 200px);
-  padding: 24px;
+  grid-template-columns: repeat(auto-fill, 230px);
+  padding: 4rem 0px 4rem 3rem;
   gap: 24px;
 }
 
+/*----- Notas -----*/
 .note {
   height: 200px;
   box-sizing: border-box;
@@ -42,6 +47,7 @@ body {
   transition: background 0.2s;
 }
 
+/*----- Botão de adicionar nota -----*/
 .add-note:hover {
   background: rgba(0, 0, 0, 0.2);
 }

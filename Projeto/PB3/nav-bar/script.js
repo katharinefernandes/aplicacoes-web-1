@@ -1,5 +1,6 @@
 const btnMobile = document.getElementById('btn-mobile');
 
+// Função para o evento e animação de abertura do menu mobile
 function toggleMenu(event) {
   if (event.type === 'touchstart') event.preventDefault();
   const nav = document.getElementById('nav');

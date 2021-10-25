@@ -3,27 +3,26 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Organize - Notas</title>
+    <title>Remember - Notas</title>
 
+    <!--Links de apis fonte e icones google-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!--Conectando com o CSS-->
     <link rel="stylesheet" href="./style.css" />
     <link rel="stylesheet" href="/nav-bar/style.css" />
     <link rel="stylesheet" href="/keyboard/styles.css" />
-    <link
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,400;1,700&display=swap"
-      rel="stylesheet"
-    />
   </head>
+
   <body>
     <!--Menu-->
     <header id="header">
-      <a id="logo" href="">Organize</a>
+      <a id="logo" href=""
+        ><span class="material-icons"> bubble_chart </span> Remember</a
+      >
       <nav id="nav">
+        <!--Botão lateral -> responsividade-->
         <button
           aria-label="Abrir Menu"
           id="btn-mobile"
@@ -33,6 +32,7 @@
         >
           <span id="hamb"></span>
         </button>
+        <!--Links de acesso as outras páginas-->
         <ul id="menu" role="menu">
           <li><a href="/index.html">To-Do-List</a></li>
           <li><a href="/notes/index.html">Notas</a></li>
@@ -40,11 +40,12 @@
       </nav>
     </header>
 
+    <!-- Espaço para a nota ser adicionada -->
     <div id="app">
-      <textarea class="note keyboard-input" placeholder="Nota adesiva vazia"></textarea>
+      <!-- Botão pra adicionar uma nova nota -->
       <button class="add-note" type="button">+</button>
     </div>
-
+    <!--Conectando com o JS-->
     <script src="./script.js"></script>
     <script src="/keyboard/scripts.js"></script>
     <script src="/nav-bar/script.js"></script>

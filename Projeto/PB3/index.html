@@ -3,29 +3,26 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Organize - To-Do-List</title>
+    <title>Remember - To-Do-List</title>
 
-    <link rel="stylesheet" href="/todolist/styles.css" />
-    <link rel="stylesheet" href="/nav-bar/style.css" />
-    <link rel="stylesheet" href="/keyboard/styles.css" />
-    <link
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet"
-    />
+    <!--Links de apis fonte e icones google-->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,400;1,700&display=swap"
-      rel="stylesheet"
-    />
+    <!--Conectando com o CSS-->
+    <link rel="stylesheet" href="/todolist/styles.css" />
+    <link rel="stylesheet" href="/nav-bar/style.css" />
+    <link rel="stylesheet" href="/keyboard/styles.css" />
   </head>
 
   <body>
     <!--Menu-->
     <header id="header">
-      <a id="logo" href="">Organize</a>
+      <a id="logo" href=""
+        ><span class="material-icons"> bubble_chart </span> Remember</a
+      >
       <nav id="nav">
+        <!--Botão lateral -> responsividade-->
         <button
           aria-label="Abrir Menu"
           id="btn-mobile"
@@ -35,14 +32,16 @@
         >
           <span id="hamb"></span>
         </button>
+        <!--Links de acesso as outras páginas-->
         <ul id="menu" role="menu">
-          <li><a href="./index.html">To-Do-List</a></li>
+          <li><a href="/index.html">To-Do-List</a></li>
           <li><a href="/notes/index.html">Notas</a></li>
         </ul>
       </nav>
     </header>
 
     <h1>To-Do-List</h1>
+    <!-- Formulário para adicionar as tarefas-->
     <div id="formulario">
       <form id="form">
         <input
@@ -54,11 +53,13 @@
         />
         <ul class="todos" id="todos"></ul>
       </form>
+      <!-- Texto indicador de como utilizar a aplicação corretamente-->
       <small
         >Clique com o botão esquerdo para marcar como concluído.<br />
         Clique com o botão direito para deletar a tarefa</small
       >
     </div>
+    <!-- Conectando com o JS -->
     <script src="/todolist/scripts.js"></script>
     <script src="/keyboard/scripts.js"></script>
     <script src="/nav-bar/script.js"></script>
