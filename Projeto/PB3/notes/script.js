@@ -18,9 +18,9 @@ function saveNotes(notes) {
 
 function createNoteElement(id, content) {
   const element = document.createElement("textarea");
-
-  element.classList.add("note");
+  
   element.classList.add("keyboard-input");
+  element.classList.add("note");
   element.value = content;
   element.placeholder = "Empty Sticky Note";
 
