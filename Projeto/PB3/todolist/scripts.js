@@ -29,7 +29,7 @@ function addTodo(todo) {
     }
     todoEl.innerText = todoText;
 
-    //marcarndo como completo
+    //marcando como completo
     todoEl.addEventListener("click", () => {
       todoEl.classList.toggle("completed");
       updateLS();

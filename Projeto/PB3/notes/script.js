@@ -20,6 +20,7 @@ function createNoteElement(id, content) {
   const element = document.createElement("textarea");
 
   element.classList.add("note");
+  element.classList.add("keyboard-input");
   element.value = content;
   element.placeholder = "Empty Sticky Note";
 
@@ -40,11 +41,12 @@ function createNoteElement(id, content) {
   return element;
 }
 
-function addNotes() {
+function addNote() {
   const notes = getNotes();
   const noteObject = {
     id: Math.floor(Math.random() * 100000),
-    content: "",
+    class: keyboard-input,
+    content: ""
   };
 
   const noteElement = createNoteElement(noteObject.id, noteObject.content);
