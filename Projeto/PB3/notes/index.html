@@ -3,20 +3,49 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Virtual Keyboard HTML, CSS & JS</title>
+    <title>Organize - Notas</title>
 
-  <link rel="stylesheet" href="./style.css"/>
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="/Projeto/PB3/nav-bar/style.css" />
+    <link rel="stylesheet" href="/Projeto/PB3/keyboard/styles.css" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!--Menu-->
+    <header id="header">
+      <a id="logo" href="">Logo</a>
+      <nav id="nav">
+        <button
+          aria-label="Abrir Menu"
+          id="btn-mobile"
+          aria-haspopup="true"
+          aria-controls="menu"
+          aria-expanded="false"
+        >
+          <span id="hamb"></span>
+        </button>
+        <ul id="menu" role="menu">
+          <li><a href="/Projeto/PB3/todolist/index.html">To-Do-List</a></li>
+          <li><a href="/Projeto/PB3/notes/index.html">Notas</a></li>
+        </ul>
+      </nav>
+    </header>
 
-</head>
-<body>
-  <div id="app">
-    <button class="add-note" type="button">+</button>
-  </div>
-  
-  <script src="./script.js"></script>
-</body>
+    <div id="app">
+      <button class="add-note" type="button">+</button>
+    </div>
+
+    <script src="./script.js"></script>
+    <script src="/Projeto/PB3/keyboard/scripts.js"></script>
+    <script src="/Projeto/PB3/nav-bar/script.js"></script>
+  </body>
 </html>

@@ -28,7 +28,9 @@ function createNoteElement(id, content) {
   });
 
   element.addEventListener("dblclick", () => {
-    const doDelete = confirm("Are you sure you wish to delete this sticky note?");
+    const doDelete = confirm(
+      "Are you sure you wish to delete this sticky note?"
+    );
 
     if (doDelete) {
       deleteNote(id, element);
@@ -42,7 +44,7 @@ function addNotes() {
   const notes = getNotes();
   const noteObject = {
     id: Math.floor(Math.random() * 100000),
-    content: ""
+    content: "",
   };
 
   const noteElement = createNoteElement(noteObject.id, noteObject.content);
@@ -60,7 +62,7 @@ function updateNote(id, newContent) {
   saveNotes(notes);
 }
 
-function deleteNote (id, element) {
+function deleteNote(id, element) {
   const notes = getNotes().filter((note) => note.id != id);
 
   saveNotes(notes);

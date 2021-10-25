@@ -4,7 +4,7 @@ const todosUL = document.getElementById('todos');
 
 const todos = JSON.parse(localStorage.getItem('todos'));
 
-// Save our "todos" to local Storage
+
 if(todos) {
   todos.forEach((todo) => {
     addTodo(todo); 
@@ -21,28 +21,29 @@ function addTodo(todo) {
   if(todo) {
     todoText = todo.text;
   }
+
   // lista de itens
   if(todoText) {
-    const todoEl = document.createElement('li');
+    const todoEl = document.createElement('p');
     if(todo && todo.completed) {
       todoEl.classList.add('completed');
     }
     todoEl.innerText = todoText;
 
-    //mark as completed
+    //marcarndo como completo
     todoEl.addEventListener('click', () => {
       todoEl.classList.toggle('completed');
       updateLS();
     });
 
-    //delete
+    //deletando
     todoEl.addEventListener('contextmenu', (e) => {
       e.preventDefault();
       todoEl.remove();
       updateLS();
     });
 
-    //add it to the DOM
+    //adicionando item
     todosUL.appendChild(todoEl);
     input.value = '';
     updateLS();
@@ -50,7 +51,7 @@ function addTodo(todo) {
 }
 
 function updateLS() {
-  todosEl = document.querySelectorAll('li');
+  todosEl = document.querySelectorAll('p');
 
   const todos = [];
 

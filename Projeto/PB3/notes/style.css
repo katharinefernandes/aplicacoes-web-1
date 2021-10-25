@@ -6,16 +6,17 @@
 
 body {
   margin: 0;
-  background: #009578;
+  background: #f65058ff;
   font-family: "Poppins", sans-serif;
 }
 
 #app {
   display: grid;
-  grid-template-columns: repeat(auto-fill, 200px);
-  padding: 24px;
-  gap: 24px;
-} 
+  grid-template-columns: repeat(5, 220px);
+  margin-top: 8rem;
+  padding: 3rem;
+  gap: 30px;
+}
 
 .note {
   height: 200px;
@@ -23,7 +24,7 @@ body {
   padding: 16px;
   border: none;
   border-radius: 10px;
-  box-shadow: 0 0 7px rgba(0, 0, 0, 0,15);
+  box-shadow: 0 0 7px rgba(0, 0, 0, 0, 15);
   resize: none;
   font-size: 16px;
   font-family: "Poppins", sans-serif;
