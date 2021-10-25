@@ -32,7 +32,14 @@ const Keyboard = {
     document.body.appendChild(this.elements.main);
 
     // Uso automatico do teclado para os elementos com a class .use-keyboard-input
-    document.querySelectorAll(".keyboard-input").forEach((element) => {
+    document.querySelectorAll("textarea").forEach((element) => {
+      element.addEventListener("focus", () => {
+        this.open(element.value, (currentValue) => {
+          element.value = currentValue;
+        });
+      });
+    });
+    document.querySelectorAll("input").forEach((element) => {
       element.addEventListener("focus", () => {
         this.open(element.value, (currentValue) => {
           element.value = currentValue;
