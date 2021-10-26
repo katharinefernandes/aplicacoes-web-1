@@ -92,3 +92,7 @@ button {
   border-radius: 3px;
   cursor: pointer;
 }
+
+.errorInput {
+  border: 2px solid rgb(207, 53, 53) !important;
+}

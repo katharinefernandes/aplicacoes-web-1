@@ -51,3 +51,10 @@ body {
 .add-note:hover {
   background: rgba(0, 0, 0, 0.2);
 }
+
+/*----- Texto informativo -----*/
+small {
+  margin-top: 3rem;
+  text-align: center;
+  color: var(--grey);
+}
