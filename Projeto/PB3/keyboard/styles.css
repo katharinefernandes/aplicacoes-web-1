@@ -3,8 +3,15 @@
 @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 
 /*----- Corpo da página -----*/
-body {
-  font-family: 'Poppins', sans-serif;
+/*----- Corpo da página -----*/
+* {
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+:root {
+  --grey: #2e2e2e;
+  --pink: pink;
 }
 
 /*----- Keyboard -----*/
@@ -14,12 +21,10 @@ body {
   bottom: 0;
   width: 100%;
   padding: 5px 0;
-  background: #004134;
-  box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+  background: var(--grey);
   user-select: none;
   transition: bottom 0.4s;
 }
-
 
 .keyboard-hidden {
   bottom: -100%;
@@ -37,8 +42,8 @@ body {
   margin: 3px;
   border-radius: 4px;
   border: none;
-  background: rgba(255, 255, 255, 0.2);
-  color: #ffffff;
+  background: #1d1d1d;
+  color: #d86c8f;
   font-size: 1.05rem;
   outline: none;
   cursor: pointer;
@@ -73,15 +78,15 @@ body {
   position: absolute;
   width: 8px;
   height: 8px;
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(0, 0, 0, 0.178);
   border-radius: 50%;
 }
 
 /*----- Caps-Lock active -----*/
 .keyboard-key-active::after {
-  background: #08ff00;
+  background: #ffffff;
 }
 
 .keyboard-key-dark {
-  background: rgba(0, 0, 0, 0.25);
+  background: rgba(0, 0, 0, 0.144);
 }

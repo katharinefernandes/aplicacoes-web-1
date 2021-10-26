@@ -3,18 +3,27 @@
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 
 /*----- Corpo da página -----*/
+/*----- Corpo da página -----*/
+* {
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+:root {
+  --grey: #2e2e2e;
+  --pink: pink;
+}
+
 body,
 ul {
-  margin: 0px;
-  padding: 0px;
-  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
 /*----- Links do menu -----*/
 a {
-  color: black;
+  color: var(--pink);
   text-decoration: none;
-  font-family: sans-serif;
 }
 
 a:hover {
@@ -40,7 +49,7 @@ a:hover {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: #e7e7e7;
+  background: var(--grey);
 }
 
 #menu {
@@ -67,7 +76,7 @@ a:hover {
     width: 100%;
     top: 70px;
     right: 0px;
-    background: #e7e7e7;
+    background: var(--grey);
     transition: 0.6s;
     z-index: 1000;
     height: 0px;
@@ -80,9 +89,10 @@ a:hover {
     overflow-y: auto;
   }
   #menu a {
-    padding: 1rem 0;
-    margin: 0 1rem;
-    border-bottom: 2px solid rgba(0, 0, 0, 0.05);
+    padding: 3rem 0;
+    margin: 0 2rem;
+    text-align: center;
+    border-bottom: 2px solid var(--pink);
   }
   #btn-mobile {
     display: flex;
@@ -92,6 +102,7 @@ a:hover {
     background: none;
     cursor: pointer;
     gap: 0.5rem;
+    color: var(--pink);
   }
   #hamb {
     border-top: 2px solid;

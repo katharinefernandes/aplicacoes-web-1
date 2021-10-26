@@ -4,21 +4,27 @@
 /*----- Corpo da página -----*/
 * {
   box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+:root {
+  --grey: #2e2e2e;
 }
 
 body {
-  color: #444;
-  font-family: "Poppins", sans-serif;
-  background-image: url(/assets/fundo.svg);
+  background-image: url(/images/fundo.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
 }
 
 /*----- Título -----*/
 h1 {
-  /* color: #f65058ff; */
-  color: rgb(45, 57, 83);
+  color: var(--grey);
   font-size: 3rem;
   text-align: center;
-  opacity: 0.5;
+  opacity: 0.8;
 }
 
 /*----- Formulário -----*/
@@ -54,7 +60,7 @@ form {
 }
 
 input:focus {
-  outline-color: rgb(231, 167, 200);
+  outline-color: pink;
 }
 
 /*----- Tarefas adicionadas -----*/
@@ -81,6 +87,5 @@ input:focus {
 small {
   margin-top: 3rem;
   text-align: center;
-  color: #b5b5b5;
-  color: black;
+  color: var(--grey);
 }
