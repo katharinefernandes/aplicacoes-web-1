@@ -34,11 +34,32 @@ const form = document.getElementById('form')
 const email = document.getElementById('email')
 const telefone = document.getElementById('telefone')
 const cpf = document.getElementById('cpf')
+const fullname = document.getElementById('fullname')
+const assunto = document.getElementById('assunto')
+const sugestao = document.getElementById('sugestao')
 
 const button = document.getElementById('button')
 
 button.addEventListener('click', event => {
     event.preventDefault()
+
+    if (fullname.value == '') {
+        fullname.classList.add('errorInput')
+    } else {
+        fullname.classList.remove('errorInput')
+    }
+
+    if (assunto.value == '') {
+        assunto.classList.add('errorInput')
+    } else {
+        assunto.classList.remove('errorInput')
+    }
+
+    if (sugestao.value == '') {
+        sugestao.classList.add('errorInput')
+    } else {
+        sugestao.classList.remove('errorInput')
+    }
 
     if (email.value == '') {
         email.classList.add('errorInput')
