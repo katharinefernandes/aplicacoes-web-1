@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Vue.js - Condicionais e Laços</title>
+
+    <!-- BOOTSTRAP CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+
+    <!-- FAVICON -->
+    <link rel="shortcut icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Vue.js_Logo_2.svg/640px-Vue.js_Logo_2.svg.png" type="image/png" />
+
+    <!-- STYLES -->
+    <link rel="stylesheet" href="css/code.css" />
+
+    <!-- VUE JS -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="home.html">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Vue.js_Logo_2.svg/640px-Vue.js_Logo_2.svg.png" width="30" height="30" class="d-inline-block align-top" alt="" /> Vue.js
+        </a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Alterna navegação">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-item nav-link" href="renderization.html">
+            Renderização Declarativa
+          </a>
+                <a class="nav-item nav-link active" href="#">Condicionais e Laços<span class="sr-only">(Página atual)</span>
+          </a>
+                <a class="nav-item nav-link" href="user.html">Interação do Usuário</a>
+                <a class="nav-item nav-link" href="components.html">Componentes</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <h2>
+            Passo 2:
+            <hr />
+        </h2>
+
+        <h3>
+            Condicionais e Laços
+            <hr />
+        </h3>
+
+        <p>Também é fácil alternar a presença de um elemento:</p>
+
+        <pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"app-3"</span>&gt;</span>
+<span class="hljs-tag">    &lt;<span class="hljs-name">p</span> <span class="hljs-attr">v-if</span>=<span class="hljs-string">"seen"</span>&gt;</span>Agora você me viu<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
+
+        <pre><code class="hljs js"><span class="hljs-keyword">var</span> app3 = <span class="hljs-keyword">new</span> Vue(&#123;
+<span class="hljs-attr">    el</span>: <span class="hljs-string">'#app-3'</span>,
+<span class="hljs-attr">    data</span>: &#123;
+  <span class="hljs-attr">    seen</span>: <span class="hljs-literal">true</span>
+    &#125;
+&#125;)</code></pre>
+
+        <div id="app-3" class="demo">
+            <span v-if="seen">Agora você me viu</span>
+        </div>
+
+        <p>
+            Vá em frente e informe <code>app3.seen = false</code> no
+            <em>console</em>. Você verá a mensagem desaparecer.
+        </p>
+        <p>
+            Este exemplo demonstra que nós podemos interligar dados não apenas ao texto e aos atributos, mas também à <strong>estrutura</strong> do DOM. Mais do que isso, Vue também provê um poderoso sistema de transições que pode automaticamente aplicar
+            <a href="transitions.html">efeitos de transição</a> quando elementos são inseridos/atualizados/removidos pelo Vue.
+        </p>
+        <p>
+            Existem mais algumas diretivas, cada uma com sua própria funcionalidade. Por exemplo, a diretiva <code>v-for</code> pode ser usada para exibir uma lista de itens usando dados de um Array:
+        </p>
+        <pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"app-4"</span>&gt;</span>
+<span class="hljs-tag">    &lt;<span class="hljs-name">ol</span>&gt;</span>
+  <span class="hljs-tag">    &lt;<span class="hljs-name">li</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">"todo in todos"</span>&gt;</span>
+          &#123;&#123; todo.text &#125;&#125;
+  <span class="hljs-tag">    &lt;/<span class="hljs-name">li</span>&gt;</span>
+<span class="hljs-tag">    &lt;/<span class="hljs-name">ol</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
+
+        <pre><code class="hljs js"><span class="hljs-keyword">var</span> app4 = <span class="hljs-keyword">new</span> Vue(&#123;
+<span class="hljs-attr">    el</span>: <span class="hljs-string">'#app-4'</span>,
+<span class="hljs-attr">    data</span>: &#123;
+  <span class="hljs-attr">    todos</span>: [
+          &#123; <span class="hljs-attr">text</span>: <span class="hljs-string">'Aprender JavaScript'</span> &#125;,
+          &#123; <span class="hljs-attr">text</span>: <span class="hljs-string">'Aprender Vue'</span> &#125;,
+          &#123; <span class="hljs-attr">text</span>: <span class="hljs-string">'Criar algo incrível'</span> &#125;
+          ]
+    &#125;
+&#125;)</code></pre>
+
+        <div id="app-4" class="demo">
+            <ol>
+                <li v-for="todo in todos">{{ todo.text }}</li>
+            </ol>
+        </div>
+
+        <p>
+            No <em>console</em>, informe
+            <code>app4.todos.push({ text: &#39;Novo item&#39; })</code>. Você verá um novo item ser acrescentado dinamicamente à lista.
+        </p>
+
+        <p>
+            Deste modo, você está mais que preparado par seguir para o próximo passo.
+        </p>
+
+        <button type="button" class="btn btn-success">
+        <a style="text-decoration: none; color: white" href="user.html"
+          >Próxima página
+        </a>
+      </button>
+    </main>
+
+    <!-- MAIN JS -->
+    <script src="js/main.js"></script>
+
+    <!-- BOOTSTRAP JAVASCRIPT -->
+    <!-- JQUERY, POPPER.JS E BOOTSTRAP JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</body>
+
+</html>

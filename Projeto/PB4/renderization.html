@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Vue.js - Renderização Declarativa</title>
+
+    <!-- BOOTSTRAP CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+
+    <!-- FAVICON -->
+    <link rel="shortcut icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Vue.js_Logo_2.svg/640px-Vue.js_Logo_2.svg.png" type="image/png" />
+
+    <!-- STYLES -->
+    <link rel="stylesheet" href="css/code.css" />
+
+    <!-- VUE JS -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="home.html">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Vue.js_Logo_2.svg/640px-Vue.js_Logo_2.svg.png" width="30" height="30" class="d-inline-block align-top" alt="" /> Vue.js
+        </a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Alterna navegação">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-item nav-link active" href="#">
+            Renderização Declarativa
+            <span class="sr-only">(Página atual)</span>
+          </a>
+                <a class="nav-item nav-link" href="loops.html">Condicionais e Laços
+          </a>
+                <a class="nav-item nav-link" href="user.html">Interação do Usuário</a>
+                <a class="nav-item nav-link" href="components.html">Componentes</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <h2>
+            Passo 1:
+            <hr />
+        </h2>
+
+        <h3>
+            Renderização Declarativa
+            <hr />
+        </h3>
+
+        <p>
+            Uma das características marcantes do núcleo do Vue.js, é a possibilidade de aplicar a rederização declarativa de dados no DOM (Document Object Model) aplicando uma simples sintaxe de template, demonstrado com dois exemplos abaixo:
+        </p>
+
+        <pre>    <code class="hljs html">    <span class="hljs-tag">&lt;<span class="hljs-name">div</span><span class="hljs-attr"> id</span>=<span class="hljs-string">"app"</span>&gt;</span>
+            {{ message }}
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>    </code>     </pre>
+
+        <pre><code class="hljs js"><span class="hljs-keyword">    var</span> app = <span class="hljs-keyword">new</span> Vue({
+        <span class="hljs-attr">    el</span>: <span class="hljs-string">'#app'</span>,
+        <span class="hljs-attr">    data</span>: {
+          <span class="hljs-attr">    message</span>: <span class="hljs-string">'Olá Vue!'</span>
+        }
+    })</code></pre>
+
+        <div id="app" class="demo">{{ message }}</div>
+
+        <p>
+            Você acaba criar seu primeiro aplicativo Vue! Como você pode ver, isso é bem similar a renderizar uma template string, mas Vue fez bastante trabalho interno, portanto vemos como os dados e o DOM se interligaram e tudo se tornou reativo. Você também pode
+            comprovar isso na prática: Basta abrir o console JavaScript de seu navegador (agora mesmo, nesta página) e atribuir um valor diferente em app.message. Você verá o exemplo renderizado acima se atualizando de acordo.
+        </p>
+        <p>
+            Percebe-se que um app Vue acopla-se a um único elemento da DOM (o id #app nesse caso) e o controla completamente, de modo que não precisamos mais interagir diretamente com o HTML, pois tudo na instância do Vue recém criada por nós. Um outro exemplo demonstra
+            como interligar atributos de elementos:
+        </p>
+
+        <pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"app-2"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">v-bind:title</span>=<span class="hljs-string">"message"</span>&gt;</span>
+        Pare o mouse sobre mim e veja a dica interligada dinamicamente!
+    <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
+
+        <pre><code class="hljs js"><span class="hljs-keyword">var</span> app2 = <span class="hljs-keyword">new</span> Vue(&#123;
+        <span class="hljs-attr">el</span>: <span class="hljs-string">'#app-2'</span>,
+        <span class="hljs-attr">data</span>: &#123;
+        <span class="hljs-attr">message</span>: <span class="hljs-string">'Você carregou esta página em '</span> + <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>().toLocaleString()
+    &#125;
+&#125;)</code></pre>
+
+        <div id="app-2" class="demo">
+            <span v-bind:title="message">
+          Pare o mouse sobre mim e veja a dica interligada dinamicamente!
+        </span>
+        </div>
+
+        <p>
+            Portanto, vemos um conceito novo. O atributo <code>v-bind</code> que você está vendo é chamado de <strong>diretiva</strong>. Diretivas são prefixadas com <code>v-</code> para indicar que são atributos especiais providos pelo Vue, e como você
+            deve ter percebido, aplicam comportamento especial de reatividade ao DOM renderizado. Neste caso, basicamente está sendo dito: “mantenha o atributo <code>title</code> do elemento sempre atualizado em relação à propriedade <code>message</code>            da instância Vue”.
+        </p>
+
+        <p>
+            Novamente, se você abrir seu <em>console</em> JavaScript e modificar o valor de <code>app2.message</code> da seguinte maneira:
+            <code>app2.message = &#39;alguma nova mensagem&#39;</code>, será possivel ver o HTML vinculado - neste caso, o atributo
+            <code>title</code> - sendo atualizado automaticamente.
+        </p>
+
+        <p>
+            Deste modo, você está mais que preparado par seguir para o próximo passo.
+        </p>
+
+        <button type="button" class="btn btn-success">
+        <a style="text-decoration: none; color: white" href="loops.html"
+          >Próxima página
+        </a>
+      </button>
+    </main>
+
+    <!-- MAIN JS -->
+    <script src="js/main.js"></script>
+
+    <!-- BOOTSTRAP JAVASCRIPT -->
+    <!-- JQUERY, POPPER.JS E BOOTSTRAP JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</body>
+
+</html>

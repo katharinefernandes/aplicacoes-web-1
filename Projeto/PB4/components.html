@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Vue.js - Componentes e mais componentes</title>
+
+    <!-- BOOTSTRAP CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+
+    <!-- FAVICON -->
+    <link rel="shortcut icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Vue.js_Logo_2.svg/640px-Vue.js_Logo_2.svg.png" type="image/png" />
+
+    <!-- STYLES -->
+    <link rel="stylesheet" href="css/code.css" />
+
+    <!-- VUE JS -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="home.html">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Vue.js_Logo_2.svg/640px-Vue.js_Logo_2.svg.png" width="30" height="30" class="d-inline-block align-top" alt="" /> Vue.js
+        </a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Alterna navegação">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-item nav-link" href="renderization.html">
+            Renderização Declarativa
+          </a>
+                <a class="nav-item nav-link" href="loops.html">Condicionais e Laços
+          </a>
+                <a class="nav-item nav-link" href="user.html">Interação do Usuário</a>
+                <a class="nav-item nav-link active" href="#">Componentes<span class="sr-only">(Página atual)</span></a
+          >
+        </div>
+      </div>
+    </nav>
+
+    <main>
+      <h2>
+        Passo Final:
+        <hr />
+      </h2>
+
+      <h3>
+        Composição com Componentes
+        <hr />
+      </h3>
+
+      <p>
+        O sistema de componentes também é outro importante conceito no Vue, por
+        ser uma abstração que proporciona a construção de aplicações de larga
+        escala compostas por pequenos componentes, auto-contidos e
+        frequentemente reutilizáveis. Se nós pensarmos sobre isso, quase
+        qualquer tipo de interface de uma aplicação pode ser abstraída em uma
+        árvore de componentes:
+      </p>
+
+      <p style="text-align: center">
+        <img
+          height="400"
+          src="https://br.vuejs.org/images/components.png"
+          alt="Árvore de Componentes"
+        />
+      </p>
+
+      <p>
+        No Vue, um componente é essencialmente uma instância Vue com opções
+        predefinidas. Registrar um componente no Vue é simples:
+      </p>
+
+      <pre><code class="hljs js"><span class="hljs-comment">// Define um novo componente chamado todo-item</span>
+Vue.component(<span class="hljs-string">'todo-item'</span>, &#123;
+<span class="hljs-attr">    template</span>: <span class="hljs-string">'&lt;li&gt;Isso é um item&lt;/li&gt;'</span>
+&#125;)
+
+<span class="hljs-keyword">var</span> app = <span class="hljs-keyword">new</span> Vue(...)</code></pre>
+
+      <p>
+        Agora você pode compor com isto no <em>template</em> de outro
+        componente:
+      </p>
+
+      <pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">ol</span>&gt;</span>
+<span class="hljs-comment">    &lt;!-- Cria uma instância do componente todo-item --&gt;</span>
+<span class="hljs-tag">    &lt;<span class="hljs-name">todo-item</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">todo-item</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">ol</span>&gt;</span></code></pre>
+
+      <p>
+        Mas isto renderizaria o mesmo texto toda vez que um item fosse
+        utilizado, o que não é lá muito interessante. Devemos poder passar os
+        dados do escopo superior (<em>parent</em>) para os componentes filhos.
+        Vamos modificar o componente para fazê-lo aceitar uma
+        <a href="components.html#Props">prop</a>:
+                </p>
+
+                <pre><code class="hljs js">Vue.component(<span class="hljs-string">'todo-item'</span>, &#123;
+<span class="hljs-comment">    // O componente todo-item agora aceita uma</span>
+<span class="hljs-comment">    // "prop", que é como um atributo personalizado.</span>
+<span class="hljs-comment">    // Esta propriedade foi chamada de "todo".</span>
+<span class="hljs-attr">    props</span>: [<span class="hljs-string">'todo'</span>],
+<span class="hljs-attr">    template</span>: <span class="hljs-string">'&lt;li&gt;&#123;&#123; todo.text &#125;&#125;&lt;/li&gt;'</span>
+&#125;)</code></pre>
+
+                <p>
+                    Agora podemos passar o dado <code>todo</code> em cada repetição de componente usando <code>v-bind</code>:
+                </p>
+
+                <pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"app-7"</span>&gt;</span>
+<span class="hljs-tag">    &lt;<span class="hljs-name">ol</span>&gt;</span>
+<span class="hljs-comment">    &lt;!--
+    Agora provemos cada todo-item com o objeto todo que ele
+    representa, de forma que seu conteúdo possa ser dinâmico.
+    Também precisamos prover cada componente com uma "chave",
+    a qual será explicada posteriormente.
+    --&gt;</span>
+<span class="hljs-tag">    &lt;<span class="hljs-name">todo-item</span>
+<span class="hljs-attr">        v-for</span>=<span class="hljs-string">"item in groceryList"</span>
+<span class="hljs-attr">        v-bind:todo</span>=<span class="hljs-string">"item"</span>
+<span class="hljs-attr">        v-bind:key</span>=<span class="hljs-string">"item.id"</span>
+    &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">todo-item</span>&gt;</span>
+<span class="hljs-tag">    &lt;/<span class="hljs-name">ol</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
+                <pre><code class="hljs js">Vue.component(<span class="hljs-string">'todo-item'</span>, &#123;
+    <span class="hljs-attr">props</span>: [<span class="hljs-string">'todo'</span>],
+    <span class="hljs-attr">template</span>: <span class="hljs-string">'&lt;li&gt;&#123;&#123; todo.text &#125;&#125;&lt;/li&gt;'</span>
+&#125;)
+
+<span class="hljs-keyword">var</span> app7 = <span class="hljs-keyword">new</span> Vue(&#123;
+    <span class="hljs-attr">el</span>: <span class="hljs-string">'#app-7'</span>,
+    <span class="hljs-attr">data</span>: &#123;
+    <span class="hljs-attr">groceryList</span>: [
+        &#123; <span class="hljs-attr">id</span>: <span class="hljs-number">0</span>, <span class="hljs-attr">text</span>: <span class="hljs-string">'Vegetais'</span> &#125;,
+        &#123; <span class="hljs-attr">id</span>: <span class="hljs-number">1</span>, <span class="hljs-attr">text</span>: <span class="hljs-string">'Queijo'</span> &#125;,
+        &#123; <span class="hljs-attr">id</span>: <span class="hljs-number">2</span>, <span class="hljs-attr">text</span>: <span class="hljs-string">'Qualquer outra coisa que humanos podem comer'</span> &#125;
+    ]
+&#125;
+&#125;)</code></pre>
+
+                <div id="app-7" class="demo">
+                    <ol>
+                        <todo-item v-for="item in groceryList" v-bind:todo="item" v-bind:key="item.id"></todo-item>
+                    </ol>
+                </div>
+
+                <p>
+                    Este é um exemplo fictício, mas conseguimos separar nossa aplicação em duas pequenas unidades, sendo que o componente filho está razoavelmente bem desacoplado do componente pai graças à funcionalidade de
+                    <code>props</code>. Podemos agora melhorar nosso componente
+                    <code>&lt;todo-item&gt;</code> com <em>template</em> e lógica mais complexos, sem afetar o restante.
+                </p>
+
+                <p>
+                    Em uma aplicação grande, é essencial dividir todo o aplicativo em componentes para tornar o desenvolvimento gerenciável. Falaremos mais sobre componentes <a href="components.html">futuramente neste guia</a>, mas aqui está um exemplo
+                    (imaginário) da aparência que o
+                    <em>template</em> de um aplicativo poderia ter com o uso de componentes:
+                </p>
+
+                <pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"app"</span>&gt;</span>
+<span class="hljs-tag">    &lt;<span class="hljs-name">app-nav</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">app-nav</span>&gt;</span>
+<span class="hljs-tag">    &lt;<span class="hljs-name">app-view</span>&gt;</span>
+<span class="hljs-tag">    &lt;<span class="hljs-name">app-sidebar</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">app-sidebar</span>&gt;</span>
+<span class="hljs-tag">    &lt;<span class="hljs-name">app-content</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">app-content</span>&gt;</span>
+<span class="hljs-tag">    &lt;/<span class="hljs-name">app-view</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
+
+                <p>
+                    E aqui nós finalizamos a nossa viagem pelo incrível mundo do Vue.Js. The Como você pode ver, fizemos uma breve introdução dos principais conceitos e recursos básicos do núcleo do Vue, portanto se você deseja conhecer um pouco mais sobre o framework e
+                    se aprofundar em seu ínumeros recursos avançados, indicamos que busque ler a
+                    <a href="https://br.vuejs.org/v2/guide/index.html" target="_blank">documentação do Vue.js</a
+        >. Obrigada pela atenção.
+      </p>
+    </main>
+
+    <!-- MAIN JS -->
+    <script src="js/main.js"></script>
+
+    <!-- BOOTSTRAP JAVASCRIPT -->
+    <!-- JQUERY, POPPER.JS E BOOTSTRAP JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+      integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+      integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
