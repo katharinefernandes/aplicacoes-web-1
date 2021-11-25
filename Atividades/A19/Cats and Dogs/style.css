@@ -1,0 +1,66 @@
+:root{
+  --ligth-pink: #fff0f0;
+  --pink: #FF8C8C;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Poppins, sans-serif;
+  background-color: var(--ligth-pink);
+}
+
+h1 {
+  text-align: center;
+  font-size: 2rem;
+  padding: 2.5rem;
+  color: var(--pink);
+}
+
+.results {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.result {
+	background-color: #a7efff;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 10px;
+	height: 400px;
+	width: 300px;
+  border-radius: 10px;
+}
+
+.result img {
+	object-fit: cover;
+	height: 100%;
+	width: 100%;
+}
+
+.buttons {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+button {
+	background-color: var(--pink);
+	border: 0;
+	border-radius: 4px;
+	color: var(--ligth-pink);
+	font-size: 18px;
+	padding: 10px;
+	margin: 10px;
+	width: 300px;
+}
+
+button:active {
+	transform: scale(0.98);
+}
+
+button:focus {
+	outline: none
+}
