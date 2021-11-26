@@ -16,9 +16,6 @@ function initMap() {
 	// Latitude, Longitude
 	// URL da imagem
 	// Tamanho
-
-
-
 	const markers = [
 		[
 			"Yoshi's House",
