@@ -1,0 +1,35 @@
+*, *::before, *::after {
+  box-sizing: inherit;
+  font-family: Poppins, sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #313131;
+  font-family: Poppins, sans-serif;
+}
+
+h1 {
+  font-family: 'Press Start 2P', cursive;
+  text-align: center;
+  font-size: 2rem;
+  padding: 3.3rem;
+  color: #eee;
+
+}
+
+#map {
+  height: 70vh;
+}
+
+main {
+  margin: 1.5rem;
+  text-align: justify;
+}
+
+
+
+
+
+

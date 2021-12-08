@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="author" content="Katharine Fernandes" />
-    <title>Super Mario World Map</title>
+    <title>Cute Animals</title>
 
     <!-- BOOTSTRAP CSS -->
     <link
@@ -16,10 +16,10 @@
     />
 
     <!-- ICON -->
-    <link rel="shortcut icon" href="assets/logo.svg" type="image/png" />
+    <link rel="shortcut icon" href="assets/logo2.svg" type="image/png" />
 
     <!-- STYLES -->
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="style.css" />
 
     <!-- FONTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -28,16 +28,13 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap"
       rel="stylesheet"
     />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
-      rel="stylesheet"
-    />
+
   </head>
 
   <body>
     <!-- NAVBAR -->
     <nav class="navbar navbar-expand-lg navbar-light">
-      <a class="navbar-brand text-white" href="https://github.com/katharinefernandes">
+      <a class="navbar-brand" href="https://github.com/katharinefernandes">
         <img
           src="assets/logo.svg"
           width="40"
@@ -50,13 +47,26 @@
     </nav>
 
     <div class="text">
-      <h1>Welcome to Mario World!</h1>
+      <h1>Qual o seu humor animal de hoje?</h1>
     </div>
 
-    <div id="map"></div>
+    <div class="results">
+      <div id="cat_result" class="result">
+        <p>Sorteie um Gatinho</p>
+      </div>
+      <div id="dog_result" class="result">
+        <p>Sorteie um Doguinho</p>
+      </div>
+    </div>
+    
+    <div class="buttons">
+      <button id="cat_btn">♡ Gatinho ♡</button>
+      <button id="dog_btn">♡ Doguinho ♡</button>
+    </div>
 
     <!-- SCRIPT -->
-    <script src="js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="script.js"></script>
 
   </body>
 </html>
